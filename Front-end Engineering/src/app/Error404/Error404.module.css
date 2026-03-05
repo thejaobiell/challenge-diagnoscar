@@ -1,0 +1,33 @@
+.j {
+display: flex;
+flex-direction: column; 
+justify-content: center;
+align-items: center;
+height: 63vh;
+text-align: center;
+background-color: #f4f4f4; 
+}
+
+.error {
+font-size: 4rem;
+margin-bottom: 1rem;
+}
+
+.mensagem {
+font-size: 1.5rem;
+}
+
+.button {
+    width: 100px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 25px;
+    border: 3px solid #B6B6B6;
+    background: #009FE3;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px auto 10px;
+    display: block;
+    position: relative;
+}

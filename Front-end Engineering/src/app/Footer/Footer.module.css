@@ -1,0 +1,54 @@
+.footer {
+    width: 100%;
+    background-color: #8F8F8F;
+    text-align: center;
+}
+
+.reposito {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.reposito:visited {
+    color: black;
+}
+
+@media (max-width: 767px) {
+    .footer {
+        height: auto;
+        position: relative;
+        font-size: 12px;
+        font-style: italic;
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .footer {
+        height: auto;
+        position: relative;
+        font-size: 16px;
+        font-style: italic;
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .footer {
+        height: auto;
+        position: relative;
+        font-size: 18px;
+        font-style: italic;
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 1200px) {
+    .footer {
+        height: auto;
+        position: relative;
+        font-size: 20px;
+        font-style: italic;
+        font-weight: bold;
+    }
+}

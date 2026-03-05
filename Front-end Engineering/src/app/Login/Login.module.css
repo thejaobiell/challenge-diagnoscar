@@ -1,0 +1,207 @@
+.criar:link, .criar:visited {
+    color: #4A90E2;
+    text-decoration: none;
+}
+
+.criar:visited {
+    color: #4A90E2;
+    text-decoration: none;
+}
+
+.criar:hover {
+    color: #2E6EB5;
+    text-decoration: none;
+}
+
+.criar:active {
+    color: #003cff;
+    text-decoration: none;
+}
+
+.fieldset {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 300px;
+    position: relative;
+}
+
+.section input[type="text"],
+.section input[type="password"],
+.section input[type="email"] {
+    width: 100%;
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+    background-color: #F0F0F0;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.button {
+    width: 100px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 25px;
+    border: 3px solid #B6B6B6;
+    background: #009FE3;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px auto 10px;
+    display: block;
+    position: relative;
+}
+
+.button:hover {
+    background: #0077B6;
+}
+
+.passwordContainer {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.passwordContainer .input {
+    padding-right: 40px;
+}
+
+.toggleButton {
+    position: absolute;
+    right: 10px;
+    top: 30px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.toggleButton:focus {
+    outline: none;
+}
+
+@media(max-width: 767px) {
+    .section {
+        height: 400px;
+        margin: 98px 0px 98px;
+    }
+
+    .section form {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .section input[type="text"],
+    .section input[type="password"],
+    .section input[type="email"] {
+        padding: 15px;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+
+    .button {
+        width: 120px;
+        height: 55px;
+        font-size: 18px;
+        border-radius: 27px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .section {
+        height: 400px;
+        margin: 80px 0px 80px;
+    }
+
+    .section form {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .section input[type="text"],
+    .section input[type="password"],
+    .section input[type="email"] {
+        padding: 15px;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+
+    .button {
+        width: 120px;
+        height: 55px;
+        font-size: 18px;
+        border-radius: 27px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .section {
+        height: 450px;
+        margin: 61px 0px 61px;
+    }
+
+    .section form {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .section input[type="text"],
+    .section input[type="password"],
+    .section input[type="email"] {
+        padding: 18px;
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    .button {
+        width: 200px;
+        height: 65px;
+        font-size: 27px;
+        border-radius: 30px;
+    }
+
+    .toggleButton {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .section {
+        height: 565px;
+    }
+
+    .section form {
+        width: 80%;
+        max-width: 500px;
+    }
+
+    .section input[type="text"],
+    .section input[type="password"],
+    .section input[type="email"] {
+        padding: 24px;
+        margin-bottom: 30px;
+        font-size: 26px;
+    }
+
+    .button {
+        width: 200px;
+        height: 80px;
+        font-size: 26px;
+        border-radius: 40px;
+    }
+
+    .toggleButton{
+        margin-top: 10px;
+        font-size: 2rem;
+    }
+}

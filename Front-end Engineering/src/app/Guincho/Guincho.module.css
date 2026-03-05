@@ -1,0 +1,53 @@
+.container {
+    text-align: center;
+}
+
+.leaflet-container {
+    height: 400px;
+    width: 100%;
+}
+
+.coordenadas {
+    font-size: 16px;
+    color: #555;
+    margin-top: 8px;
+}
+
+.buttons {
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    border: 3px solid #009FE3;
+    background: #009FE3;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 15px auto;
+    display: block;
+    text-align: center;
+    line-height: 50px;
+}
+
+.buttons:hover {
+    background: #0077B6;
+    border-color: #0077B6;
+}
+
+.buttons:active {
+    background: #005a87;
+    border-color: #005a87;
+}
+
+.buttons:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 159, 227, 0.5);
+}
+
+.error {
+    color: red;
+}
+
+.buttons-container {
+    margin-top: 20px;
+}

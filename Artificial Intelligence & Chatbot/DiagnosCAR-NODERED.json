@@ -1,0 +1,379 @@
+[
+    {
+        "id": "0da45e60aa5bf51e",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5d43843fe0825fd4",
+        "type": "telegram bot",
+        "botname": "@Diagnoscar_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "addressfamily": "",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "dcb8024f3472d8a9",
+        "type": "http request",
+        "z": "0da45e60aa5bf51e",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "http://127.0.0.1:5000/prever",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1210,
+        "y": 340,
+        "wires": [
+            [
+                "fadac80664c57b2b",
+                "4cf61910466a4b33"
+            ]
+        ]
+    },
+    {
+        "id": "a4a2ba1042cea569",
+        "type": "function",
+        "z": "0da45e60aa5bf51e",
+        "name": "inicialização_varcontexto",
+        "func": "msg.params = {\n    'session_id': msg.payload.chatId\n}\nmsg.additional_context = {\n    'chamar_modelo': false\n}\nmsg.payload = msg.payload.content;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "f9032338f1c9043e",
+                "52f4eed5a8f16980"
+            ]
+        ]
+    },
+    {
+        "id": "47596aec89bda559",
+        "type": "switch",
+        "z": "0da45e60aa5bf51e",
+        "name": "",
+        "property": "payload.context.skills['main skill'].user_defined.chamar_modelo",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 750,
+        "y": 200,
+        "wires": [
+            [
+                "7b72d76bcfcd373b"
+            ],
+            [
+                "2833d201cfb9b5d5"
+            ]
+        ]
+    },
+    {
+        "id": "7b72d76bcfcd373b",
+        "type": "function",
+        "z": "0da45e60aa5bf51e",
+        "name": "verifica_chamar_modelo_é_false",
+        "func": "msg.payload={\n    \"content\":msg.payload.output.generic[0].text,\n    \"type\": 'message',\n    \"chatId\": msg.params.session_id\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 180,
+        "wires": [
+            [
+                "5936aa39ff749922",
+                "4514c08502f60eef"
+            ]
+        ]
+    },
+    {
+        "id": "2833d201cfb9b5d5",
+        "type": "function",
+        "z": "0da45e60aa5bf51e",
+        "name": "verifica_chamar_modelo_é_true",
+        "func": "msg.payload = {\n    descricao: msg.payload.context.skills['main skill'].user_defined.descricao\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 340,
+        "wires": [
+            [
+                "dcb8024f3472d8a9",
+                "8a01d8f8abbb396e"
+            ]
+        ]
+    },
+    {
+        "id": "fadac80664c57b2b",
+        "type": "function",
+        "z": "0da45e60aa5bf51e",
+        "name": "encaminha_resultado_no_flask",
+        "func": "const problema = msg.payload.problema || \"Não identificado\"; \nconst solucao = msg.payload.solucao || \"Nenhuma solução encontrada\";\n\nmsg.payload = {\n    'content': `O Pré-Diagnóstico é: ${problema}\\nSolução sugerida: ${solucao}`,\n    'chatId': msg.params.session_id,\n    'type': 'message'\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 340,
+        "wires": [
+            [
+                "5936aa39ff749922",
+                "97f62f959265fae5"
+            ]
+        ]
+    },
+    {
+        "id": "c5330f8f2abb2651",
+        "type": "telegram receiver",
+        "z": "0da45e60aa5bf51e",
+        "name": "",
+        "bot": "5d43843fe0825fd4",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "a4a2ba1042cea569",
+                "c2cbef036d71ee9a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5936aa39ff749922",
+        "type": "telegram sender",
+        "z": "0da45e60aa5bf51e",
+        "name": "",
+        "bot": "5d43843fe0825fd4",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1710,
+        "y": 220,
+        "wires": [
+            [
+                "f125eb3fa722467e"
+            ]
+        ]
+    },
+    {
+        "id": "f9032338f1c9043e",
+        "type": "watson-assistant-v2",
+        "z": "0da45e60aa5bf51e",
+        "name": "",
+        "service-endpoint": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/1d1960c8-ec6b-45c0-8cee-de20309350a3",
+        "assistant_id": "092ab672-0495-45e1-91ce-a01788d0a519",
+        "debug": false,
+        "restart": false,
+        "return_context": true,
+        "alternate_intents": false,
+        "multisession": true,
+        "timeout": "",
+        "optout-learning": false,
+        "persist-session-id": false,
+        "x": 570,
+        "y": 120,
+        "wires": [
+            [
+                "47596aec89bda559",
+                "10c8ef7cb84d674c"
+            ]
+        ]
+    },
+    {
+        "id": "c2cbef036d71ee9a",
+        "type": "debug",
+        "z": "0da45e60aa5bf51e",
+        "name": "1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 90,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "52f4eed5a8f16980",
+        "type": "debug",
+        "z": "0da45e60aa5bf51e",
+        "name": "2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "8a01d8f8abbb396e",
+        "type": "debug",
+        "z": "0da45e60aa5bf51e",
+        "name": "5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "4cf61910466a4b33",
+        "type": "debug",
+        "z": "0da45e60aa5bf51e",
+        "name": "6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "97f62f959265fae5",
+        "type": "debug",
+        "z": "0da45e60aa5bf51e",
+        "name": "7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1430,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "4514c08502f60eef",
+        "type": "debug",
+        "z": "0da45e60aa5bf51e",
+        "name": "4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f125eb3fa722467e",
+        "type": "debug",
+        "z": "0da45e60aa5bf51e",
+        "name": "8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1730,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "4dec16bdf10150aa",
+        "type": "comment",
+        "z": "0da45e60aa5bf51e",
+        "name": "PROFESSOR LEIA",
+        "info": "# Telegram\n# Nome do Bot: @Diagnoscar_bot\n# Api: 7141865299:AAFo2zRo8-W15I1S8SpJ9Qh6EraXa_Ykp_E\n\n- IBM WATSON:\n - ASSISTENT ID: 092ab672-0495-45e1-91ce-a01788d0a519\n - API KEY: rjKgCJB2ZkGEk2GQwPvDW9LEU5t2oJDZBhHKnYGnVeyI\n - URL: https://api.us-south.assistant.watson.cloud.ibm.com/instances/1d1960c8-ec6b-45c0-8cee-de20309350a3",
+        "x": 110,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "10c8ef7cb84d674c",
+        "type": "debug",
+        "z": "0da45e60aa5bf51e",
+        "name": "3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 160,
+        "wires": []
+    }
+]

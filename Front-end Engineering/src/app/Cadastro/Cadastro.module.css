@@ -1,0 +1,162 @@
+.letrinhas {
+    font-size: 15px;
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.fieldset {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+.label,
+.inputField {
+    width: 100%;
+    max-width: 400px;
+}
+
+.inputField {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+    background-color: #F0F0F0;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.passwordWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.toggleButton {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #007bff;
+    font-size: 0.9em;
+}
+
+.botao {
+    width: 100%;
+    max-width: 200px;
+    height: 65px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 3px solid #B6B6B6;
+    background: #009FE3;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 15px 0 10px;
+    display: block;
+}
+
+.botao:hover {
+    background: #0077B6;
+}
+
+.botaoAdicionar,
+.botaoRemover {
+    height: 30px;
+    width: 150px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 3px solid #B6B6B6;
+    background-color: #B6B6B6;
+    color: #000000;
+    font-weight: lighter;
+    cursor: pointer;
+    margin: 15px 0 10px;
+    display: block;
+}
+
+.botaoAdicionar:hover,
+.botaoRemover:hover {
+    background-color: #8a8a8a;
+    border: 3px solid #8a8a8a;
+}
+
+.legenda {
+    font-style: italic;
+    font-weight: bold;
+}
+
+@media (max-width: 767px) {
+    .forms {
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .inputField {
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .botao {
+        margin: 20px 0 10px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .inputField {
+        padding: 12px;
+        margin-bottom: 12px;
+        font-size: 18px;
+    }
+
+    .botao {
+        margin: 25px 0 12px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .inputField {
+        padding: 8px;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    .botao {
+        margin: 15px 0 10px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .label {
+        font-size: 1.2rem;
+    }
+
+    .forms {
+        padding: 25px;
+    }
+
+    .forms label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .inputField {
+        padding: 10px;
+        font-size: 1.2rem
+    }
+}

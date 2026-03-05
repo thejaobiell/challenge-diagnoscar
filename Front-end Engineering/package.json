@@ -1,0 +1,32 @@
+{
+  "name": "diagnoscar",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "proxy": "http://localhost:8080/diagnoscarweb"
+  },
+  "dependencies": {
+    "@types/leaflet": "^1.9.12",
+    "diagnoscar": "file:",
+    "http-proxy-middleware": "^3.0.3",
+    "leaflet": "^1.9.4",
+    "next": "14.2.14",
+    "normalize.css": "^8.0.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-input-mask": "^2.0.4",
+    "react-leaflet": "^4.2.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-input-mask": "^3.0.5",
+    "typescript": "^5"
+  }
+}

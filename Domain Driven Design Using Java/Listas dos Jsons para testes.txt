@@ -1,0 +1,55 @@
+Listas dos Jsons para testes
+
+Cliente
+{
+    "cpfCliente": "076.204.508-66",
+    "cnhCliente": "12345678900",
+    "rgCliente": "12.345.678.9",
+    "nomeCliente": "Gerson",
+    "sobrenomeCliente": "Marques da Silva",
+    "dataNascCliente": "1967-08-15",
+    "emailCliente": "gmarques@terra.com.br",
+    "senhaCliente": "gensinho56",
+    "telefoneCliente": "(11) 99919-7983",
+    "enderecoCliente": "Rua Clark, 125, Mooca, Sao Paulo, SP, 03167-070"
+}
+
+Automóvel:
+{
+        "placaAutomovel": "ABC1234",
+        "marcaAutomovel": "Fiat",
+        "modeloAutomovel": "Mobi",
+        "anoAutomovel": 2015,
+	"clienteCpfCliente": "076.204.508-66"
+}
+
+Chatbot:
+{
+    "idChatbot": "0001",
+    "dataChat": "2024-04-20",
+    "plano": "Basico",
+    "cpfClienteCpf": "076.204.508-66",
+    "placaAutomovel": "ABC1234"
+}
+
+Pre-Diagnostico:
+{
+    "idPreDiagnostico": "PD0001",
+    "nivelDiagnostico": 85,
+    "diagnostico": "Problema no Freio",
+    "assistente_ID_Chatbot": "0001",
+    "cliente_CPF_Cliente": "076.204.508-66",
+    "placa_Automovel": "ABC1234"
+}
+
+Oficina
+{
+    "Endereco_Oficina": "Rua das Laranjeiras, 100, Centro, Sao Paulo, SP, 01234-000",
+    "Cnpj_Oficina": "69.907.785/0412-90",
+    "Nome_Oficina": "Oficina Laranjeiras",
+    "Avaliacao_Oficina": 8.5,
+    "Especializacao_Oficina": "Mecanica Geral",
+    "Chatbot_ID_Chatbot": "0001",
+    "Chatbot_Cliente_CPF_Cliente": "957.511.398-52"
+}
+

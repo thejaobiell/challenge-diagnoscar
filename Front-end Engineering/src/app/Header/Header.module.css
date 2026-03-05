@@ -1,0 +1,106 @@
+.header {
+    width: 100%;
+    background-color: #8F8F8F;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.logo {
+    cursor: pointer;
+    width: auto;
+    max-width: 100px;
+    height: auto;
+    margin-right: 15px; 
+}
+
+.Diagnoscar {
+    color: #F7F7F7;
+    font-family: var(--FontDifera), Arial, Helvetica, sans-serif;
+    font-size: 70px;
+}
+
+.navUl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.navLi {
+    margin: 0 15px;
+}
+
+.navLink {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navLink:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    .header {
+        padding: 12px 0;
+        font-size: 20px;
+    }
+
+    .logo {
+        max-width: 80px;
+    }
+
+    .Diagnoscar {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .header {
+        font-size: 26px;
+    }
+
+    .logo {
+        max-width: 120px;
+    }
+
+    .Diagnoscar {
+        font-size: 70px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .header {
+        padding: 10px 0;
+        font-size: 20px;
+    }
+
+    .logo {
+        max-width: 200px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header {
+        padding: 5px 0;
+        font-size: 15px;
+    }
+
+    .logo {
+        max-width: 300px;
+    }
+
+    .Diagnoscar {
+        font-size: 70px;
+    }
+}

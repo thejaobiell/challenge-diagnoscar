@@ -1,0 +1,212 @@
+{
+  "intents": [
+    {
+      "intent": "quero-diagnostico",
+      "examples": [
+        {
+          "text": "gostaria de relatar um problema no meu automóvel"
+        },
+        {
+          "text": "gostaria de relatar um problema no meu carro"
+        },
+        {
+          "text": "meu automóvel está com problema"
+        },
+        {
+          "text": "meu carro está com problema"
+        },
+        {
+          "text": "quero descrever um problema no meu automóvel"
+        },
+        {
+          "text": "quero descrever um problema no meu carro"
+        },
+        {
+          "text": "relatar problema"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "problema",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "CONFORTO",
+          "synonyms": [
+            "APOIO DE BRAÇOS",
+            "AR CONDICIONADO",
+            "ENCOSTO",
+            "VENTILAÇÃO",
+            "VIDRO"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "DIREÇÃO",
+          "synonyms": [
+            "DIRECAO",
+            "DIREÇÃO",
+            "VOLANTE"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "EMBREAGEM",
+          "synonyms": [
+            "EMBREAGEM",
+            "PEDAL DE EMBREAGEM"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "FREIO",
+          "synonyms": [
+            "FREIO DE MÃO",
+            "FREIOS",
+            "PEDAL DO FREIO"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MARCHA",
+          "synonyms": [
+            "CAMBIO",
+            "CÂMBIO"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MOTOR",
+          "synonyms": [
+            "ENGINE",
+            "MOTOR"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "start",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "/start",
+          "synonyms": [
+            "/começar",
+            "/START"
+          ]
+        }
+      ],
+      "fuzzy_match": false
+    },
+    {
+      "entity": "sys-number",
+      "values": []
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Bem vindo ao DiagnosCAR, Como posso ajudar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome || @start",
+      "dialog_node": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Em outros casos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "something...is going wrong"
+              },
+              {
+                "text": "reformular frase"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Em outros casos",
+      "previous_sibling": "node_1_1730658408355",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Quero um Diagnostico",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok. Descreva o problema que está acontecendo no seu veículo:"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#quero-diagnostico",
+      "dialog_node": "node_1_1730658408355",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "FIM, AGORA É CONTIGO FLASK",
+      "parent": "node_1_1730658408355",
+      "context": {
+        "descricao": "<?input.text?>",
+        "chamar_modelo": true
+      },
+      "conditions": "@problema",
+      "dialog_node": "node_4_1730658487954"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores",
+      "use_connect_to_support_prompt": "Connect to support",
+      "single_answer_clarification_prompt": "Something else"
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    }
+  },
+  "learning_opt_out": false,
+  "language": "pt-br",
+  "description": "",
+  "name": "DiagnosCAR SKILL"
+}
